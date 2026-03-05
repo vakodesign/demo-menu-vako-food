@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú 3D - Pide ahora</title>
+    
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f4f4; overflow: hidden; }
+        
+        /* Ajuste para que el visor sea responsive */
+        model-viewer {
+            width: 100vw;
+            height: 75vh; 
+            background-color: #000000; /* Fondo blanco para resaltar la comida */
+            --poster-color: transparent;
+        }
+
+        .contenedor-boton {
+            height: 25vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgb(255, 255, 255);
+            border-top: 1px solid #ffffff;
+        }
+
+        .boton-uber {
+            background-color: #06C167; 
+            color: rgb(255, 255, 255);
+            padding: 18px 35px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 12px; /* Estilo más moderno tipo Uber App */
+            box-shadow: 0 4px 15px rgba(6, 193, 103, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .boton-uber:hover { background-color: #05a357; }
+        .boton-uber:active { transform: scale(0.95); }
+
+        /* Estilo del botón de Realidad Aumentada */
+        #ar-button {
+            background-image: url(https://modelviewer.dev/assets/ic_view_in_ar_new_googblue_48dp.png);
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            background-position: 12px 50%;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            bottom: 132px;
+            padding: 0px 16px 0px 40px;
+            font-family: Roboto Regular, Helvetica Neue, sans-serif;
+            font-size: 14px;
+            color: #4285f4;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 18px;
+            border: 1px solid #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <model-viewer 
+        src="comprimido.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        auto-rotate 
+        shadow-intensity="1.5"
+        shadow-softness="1"
+        exposure="1.2"
+        environment-image="neutral"
+        camera-orbit="auto auto auto"
+        min-camera-orbit="auto auto auto"
+        max-camera-orbit="auto auto auto"
+        interpolation-decay="200">
+        
+        <button slot="ar-button" id="ar-button">
+            VER EN MI MESA
+        </button>
+    </model-viewer>
+
+    <div class="contenedor-boton">
+        <p style="margin-bottom: 10px; color: #666; font-size: 0.9rem;">¿Te gusta lo que ves?</p>
+        <a href="AQUI_VA_TU_LINK_DE_UBER" class="boton-uber">
+            🛒 PEDIR EN UBER EATS
+        </a>
+    </div>
+
+</body>
+</html>
