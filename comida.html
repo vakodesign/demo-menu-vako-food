@@ -10,6 +10,7 @@
     <style>
         body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f4f4; overflow: hidden; }
         
+        /* Visor 3D ocupa el 75% de la pantalla */
         model-viewer {
             width: 100vw;
             height: 75vh; 
@@ -17,19 +18,21 @@
             --poster-color: transparent;
         }
 
+        /* Sección inferior para el botón */
         .contenedor-boton {
             height: 25vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: rgb(255, 255, 255);
+            background: #ffffff;
             border-top: 1px solid #eeeeee;
         }
 
+        /* Botón estilo Uber */
         .boton-uber {
             background-color: #06C167; 
-            color: rgb(255, 255, 255);
+            color: #ffffff;
             padding: 18px 35px;
             text-decoration: none;
             font-size: 1.1rem;
@@ -38,11 +41,13 @@
             box-shadow: 0 4px 15px rgba(6, 193, 103, 0.3);
             transition: all 0.3s ease;
             text-align: center;
+            display: inline-block;
         }
 
         .boton-uber:hover { background-color: #05a357; }
         .boton-uber:active { transform: scale(0.95); }
 
+        /* Botón de Realidad Aumentada */
         #ar-button {
             background-image: url(https://modelviewer.dev/assets/ic_view_in_ar_new_googblue_48dp.png);
             background-repeat: no-repeat;
@@ -62,6 +67,7 @@
             line-height: 36px;
             border-radius: 18px;
             border: 1px solid #ffffff;
+            z-index: 10;
         }
     </style>
 </head>
@@ -78,7 +84,8 @@
         exposure="1.2"
         environment-image="neutral"
         camera-orbit="auto auto auto"
-        interpolation-decay="200">
+        interpolation-decay="200"
+        touch-action="pan-y">
         
         <button slot="ar-button" id="ar-button">
             VER EN MI MESA
@@ -88,16 +95,14 @@
     <div class="contenedor-boton">
         <p style="margin-bottom: 10px; color: #666; font-size: 0.9rem;">¿Te gusta lo que ves?</p>
         <a href="https://bit.ly/4ctZ9Um" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   class="boton-uber">
-    🛒 PEDIR EN UBER EATS
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="boton-uber">
+            🛒 PEDIR EN UBER EATS
         </a>
     </div>
 
 </body>
 </html>
-
-
 
 
